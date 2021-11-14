@@ -19,7 +19,7 @@
     - ***virtualenv env***
     - Activate the virtual env, follow the instructions given after you create a env successfully
 
-4. Then run, ***pip install -r requirements.txt***
+4. Then run, ***pip install requirements.txt***
 
 5. If you have reached this step, you are good to go.
 
