@@ -1,1 +1,6 @@
 env/
+venv/
+.vscode/
+src/secrets.py
+*.pyc
+*.pyo

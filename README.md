@@ -17,20 +17,32 @@
 
     - ***pip install virtualenv***
     - ***virtualenv env***
-    - Activate the virtual env, follow the instructions given after you create a env successfully
+    - Activate the virtual env<br>
+        For Windows run - ***.\env\Scripts\activate***<br>
+        For Linux run - ***source env/bin/activate***<br>
+    Follow the instructions given after you create a env successfully .
 
-4. Then run, ***pip install requirements.txt***
+4. Create a `secrets.py` file in src folder with the follwoing content.
+    ```python
+    USERNAME="[Your MongoDB Username]"
+    PASSWORD="[Your MONGODB Password]"
+    SECRET_KEY="[A Secret Key For the App]"
+    ```
 
-5. If you have reached this step, you are good to go.
+5. Then run, ***pip install -r requirements.txt***
+6. Now run the server
+    - For Windows run - ***python -m src.server***
+    - For Linux run - ***python3 -m src.server***
+7. If you have reached this step, you are good to go.
 
 ## Group Members
 
-1. Shashwat Singh (B19056)
-2. Prashant Kumar (B19101)
-3. Rohan Raj Kansal (B19108)
-4. Sourav Sehgal (B19059)
-5. Priyanshu Shubham (B19189)
-6. Pritish Chugh (B19187)
-7. Ravi Kumar (B19191)
+1. [Shashwat Singh (B19056)](https://github.com/shashwat0003)
+2. [Prashant Kumar (B19101)](https://github.com/prashant280920)
+3. [Rohan Raj Kansal (B19108)](https://github.com/BeingHomosapien)
+4. [Sourav Sehgal (B19059)](https://github.com/SouravSehgal-3009)
+5. [Priyanshu Shubham (B19189)](https://github.com/priyanshu-shubham)
+6. [Pritish Chugh (B19187)](https://github.com/Pritishchugh22)
+7. [Ravi Kumar (B19191)](https://github.com/RaviKumar7870)
 
 ### **Megha Sharma (Mentor)**

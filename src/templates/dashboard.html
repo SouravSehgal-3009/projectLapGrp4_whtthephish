@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../static/css/dashboard.css">
+
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  
+  <a id="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <h1 style="margin:auto; text-align:center;">{{user.name}}</h1>
+  <div class="container">
+    <img src="https://picsum.photos/id/1025/200/300" alt="Avatar" class="image">   
+  </div>
+
+  <div class="container infoContainer">    
+    <h3 style="margin-bottom: 0px;">Progression:</h3>
+    <div class="progress2 progress-moved">
+      <div class="progress-bar2" style="width:{{(user.stars/21)*100}}%" >
+      </div>                       
+    </div> 
+    <h3 style="margin-bottom: -5px;">Score:</h3>
+    <div class="score" >
+      <p style="text-align: center; margin: auto; color:#fff">{{200*user.stars}}</p>
+    </div>
+    <h3 style="margin-bottom: -5px;">Stars🌟 : {{user.stars}}/24</h3>
+  </div>
+
+    <div class="container logOut" onclick="logOut()">
+      Logout
+    </div>
+
+</div>
+
+<div class="main" id="main">
+  <span id="open" class="burger" onclick="openNav()">&#9776; </span>
+    <br>
+    <h1 style="margin:auto; text-align:center; text-shadow: 0px 0px 10px #01102c; color:#fff;">Wht The Phish!!</h1><br>
+    <div class="wrapper">
+      <a href="/level1">
+        <button class="card {% if user.stars>=0 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 1</h1>
+            <h1>{% for i in range(user.level1) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>
+    <a href="./level2">    
+      <button class="card {% if user.stars>=2 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 2</h1>
+            <h1>{% for i in range(user.level2) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>  
+      <a href="./level3">  
+        <button class="card {% if user.stars>=4 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 3</h1>
+            <h1>{% for i in range(user.level3) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>  
+      <a href="./level4">  
+        <button class="card {% if user.stars>=6 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 4</h1>
+            <h1>{% for i in range(user.level4) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>  
+      <a href="./level5">  
+        <button class="card {% if user.stars>=9 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 5</h1>
+            <h1>{% for i in range(user.level5) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>  
+      <a href="./level6">  
+        <button class="card {% if user.stars>=11 %}unlock{%else%} lock {%endif%}">
+            <h1 >Level 6</h1>
+            <h1>{% for i in range(user.level6) %}
+              ⭐
+            {% endfor %}</h1>
+        </button>
+      </a>  
+      <a href="./level7">  
+        <button class="card {% if user.stars>=14 %}unlock{%else%} lock {%endif%}">
+          <h1>Level 7</h1>
+          <h1>{% for i in range(user.level7) %}
+            ⭐
+          {% endfor %}</h1>      
+        </button>
+      </a>  
+    </div>
+</div>
+
+<script>
+  if(window.innerWidth>500){
+    document.getElementById("open").style.display = "none";
+    document.getElementById("close").style.display = "none";
+    document.getElementById("mySidenav").style.width = "25%";
+      document.getElementById("main").style.marginLeft = "25%";
+  }
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0%";
+    document.getElementById("main").style.marginLeft= "0%";
+  }
+  function logOut(){
+    window.location.href = "/logout";
+  }
+  </script>
+</body>
+</html> 

@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: 100vh;
+    width: 100vw;
+}
+.wrapper{
+    background-color: tomato;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.outer{
+    width: 100%;
+    height: 2%;
+    position: sticky;
+    z-index: 1000;
+    background-color: tomato;
+}
+
+.inner{
+    height: 100%;
+    width: 0%;
+    background-color: aqua;
+    transition: ease-in 1s;
+}
+
+.sliders{
+    list-style: none;
+    /* display: flex; */
+    height: 98%;
+    width: 100%;
+    transition: ease-in 1s;
+}
+
+.slider{
+    /* display: inline-block; */
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    /* position: absolute; */
+}
+
+
+.one{
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.content{
+    /* width: 80%; */
+    /* height: 70%; */
+    margin: auto;
+    position: relative;
+    background-color: lawngreen;
+}
+
+.forward, .backward{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 0.6em;
+    background-color: rgb(255, 99, 71);
+    border: none;
+    border-radius: 1em;
+    transition: 0.5s ease-in;
+}
+
+.forward{
+    bottom: -10px;
+    right: -10px;
+}
+
+.backward{
+    bottom: -10px;
+    left: -10px;
+}
+
+button:hover{
+    transform: translateY(-4px);
+}
+
+.question{
+    background-color: tomato;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+}
+
+.options{
+    padding: 10px;
+    font-size: 20px;
+    padding-bottom: 20vh;
+}
+
+.option input{
+    padding: 10px;
+    margin: 10px;
+}
+
+.option{
+    background-color: yellow;
+    margin: 2px;
+}
+
+@media screen and (max-width: 699px){
+    .content{
+        width: 90%;
+    }
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    
+}
