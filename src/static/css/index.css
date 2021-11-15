@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,27 +9,35 @@
 body, html{
     height: 100vh;
     width: 100vw;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, red 0%, #9599E2 100%);
+    /* #1c227a */
 }
 .wrapper{
-    background-color: tomato;
-    width:100%;
-    height: 100%;
+    /* background-color: tomato; */
+    width: 38%;
+    height: 65%;
     overflow: hidden;
     position: relative;
+    top: 20%;
+    margin:auto;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transition: 1s ease-in;
 }
 
 .outer{
     width: 100%;
-    height: 2%;
+    height: 1%;
     position: sticky;
     z-index: 1000;
-    background-color: tomato;
+    background-color: white;
+
 }
 
 .inner{
     height: 100%;
     width: 0%;
-    background-color: aqua;
+    background-color: #080bd1;
     transition: ease-in 1s;
 }
 
@@ -43,15 +53,16 @@ body, html{
     /* display: inline-block; */
     height: 100%;
     width: 100%;
-    background-color: red;
+    background-color: white;
     /* position: absolute; */
 }
+
 
 
 .one{
     height: 100%;
     width: 100%;
-    background-color: blue;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-content: center;
     justify-content: center;
     display: flex;
@@ -59,65 +70,116 @@ body, html{
 
 
 .content{
-    /* width: 80%; */
+    width: 100%;
     /* height: 70%; */
-    margin: auto;
+    /* margin: auto; */
     position: relative;
-    background-color: lawngreen;
+    padding:10px;
+    background-color: white;
 }
 
-.forward, .backward{
+.forward, .backward, .last{
+    height:40px;
     position: absolute;
     font-size: 15px;
     font-weight: bold;
     color: white;
     padding: 0.6em;
-    background-color: rgb(255, 99, 71);
+    background: #007bff;
+    border: 1px solid #007bff;
     border: none;
-    border-radius: 1em;
-    transition: 0.5s ease-in;
+    border-radius: 5px;
+    /* transition:all 0.5s ease-in; */
+    cursor: pointer;
+    outline:none;
+
 }
 
-.forward{
-    bottom: -10px;
-    right: -10px;
+.forward, .last{
+    bottom: 10px;
+    right: 10px;
 }
 
 .backward{
-    bottom: -10px;
-    left: -10px;
+    bottom: 10px;
+    left: 10px;
 }
 
 button:hover{
-    transform: translateY(-4px);
+    background: #0263ca;
 }
 
 .question{
-    background-color: tomato;
-    font-size: 25px;
+    margin-top:10px;
+    /* text-align: center; */
+    font-family: 'Poppins', sans-serif;
+    /* font-size: 25px; */
     color: white;
     padding: 10px;
+    color:black;
+    font-weight: 600;
+
+}
+
+.question p{
+    padding-right: 2px;
+    /* overflow: scroll; */
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .options{
     padding: 10px;
     font-size: 20px;
-    padding-bottom: 20vh;
+    padding-bottom: 18vh;
+    
 }
 
 .option input{
+    
     padding: 10px;
     margin: 10px;
 }
 
 .option{
-    background-color: yellow;
-    margin: 2px;
+    /* background-color: yellow; */
+    /* margin: 2px; */
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 17px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.option:hover{
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
 }
 
 @media screen and (max-width: 699px){
     .content{
         width: 90%;
+    }
+    .wrapper{
+        width:93%;
+        height:70%;
+        top:20%;
+    }
+    .question{
+        font-size:12px;
+    }
+    .option{
+        font-size: 12px;
+        padding: 0px;
+    }
+    .options{
+        padding-bottom: 0px;
     }
 }
 

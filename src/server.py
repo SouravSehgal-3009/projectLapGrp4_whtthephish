@@ -20,38 +20,42 @@ def initialize_database():
 
 @app.route("/")
 def index():
-    return "Welcome"
+    return render_template('welcome.html')
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if request.method == "POST":
-        email=request.form['email']
-        u_password=request.form['password']
-        if User.login_valid(email=email,password=u_password):
-            User.login(email)
-            return redirect(url_for('dashboard'))
-        else:
-            return "Invalid Username Or Password"
-    return render_template('index.html')
+    if session['email']==None:
+        if request.method == "POST":
+            email=request.form['email']
+            u_password=request.form['password']
+            if User.login_valid(email=email,password=u_password):
+                User.login(email)
+                return redirect(url_for('dashboard'))
+            else:
+                return render_template("login.html",red_msg="Invalid username or password!")
+        return render_template('login.html')
+    return redirect(url_for('dashboard'))
 
 
 
 @app.route("/signUp",methods=["GET","POST"])
 def signUp():
-    if request.method == "POST":
-        email=request.form['email']
-        u_password=request.form['password']
-        name=request.form['name']
-        if not User.validate_Form(name,email,u_password):
-            return "Form Validation Failed!"
-        if User.get_by_email(email) is not None:
-            return "Email Already Registered!"
-        success=User.register(email,u_password,name)
-        if not success:
-            return "Something Went Wrong. Please try Again Later."
-        return redirect('/dashboard')
+    if session['email']==None:
+        if request.method == "POST":
+            email=request.form['email']
+            u_password=request.form['password']
+            name=request.form['name']
+            if not User.validate_Form(name,email,u_password):
+                return render_template("signUp.html",msg="Form Validation Failed!")
+            if User.get_by_email(email) is not None:
+                return render_template("signUp.html",red_msg="Email Already Registered.")
+            success=User.register(email,u_password,name)
+            if not success:
+                return render_template("signUp.html",msg="Something went wrong. Please try again later.")
+            return redirect('/dashboard')
         
-    return render_template('signUp.html')
+        return render_template('signUp.html')
+    return redirect(url_for('dashboard'))
 
 
 @app.route("/dashboard")
@@ -61,6 +65,7 @@ def dashboard():
         return render_template('dashboard.html',user=user)
     else:
         return redirect(url_for('login'))
+
 
 @app.route('/level<level>',methods=["GET","POST"])
 def level(level):
@@ -87,8 +92,10 @@ def level(level):
             star = max(star,getattr(user, f"level{level}"))
             total_star = user.stars - getattr(user, f"level{level}") + star
             User.updateUser(user.email, {"stars": total_star, f"level{level}": star})
-            
-            return redirect(url_for('dashboard'))
+            user.stars=total_star
+            setattr(user,f"level{level}",star)
+            return render_template('scorepage.html',user=user,level=level,star=star,score=count)
+        
         data_phishing = Question.get_by_category_and_phishing(int(level), 1)
         legitimate = Question.get_by_category_and_phishing(int(level), 0)
         data = random.sample(data_phishing, 6) + random.sample(legitimate, 4)

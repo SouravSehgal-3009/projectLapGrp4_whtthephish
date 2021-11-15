@@ -37,6 +37,7 @@ body {
 }
 
 .main {
+  margin-top:-230px;
   margin-left: 0%; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
@@ -52,11 +53,12 @@ body {
 .image {
   display: block;
   margin:auto;
-  width: 250px;
-  height:250px;
-  border-radius: 50%;
-  border: 3px solid black;
+  width: 150px;
+  height:150px;
+  border-radius: 30%;
+  border: 3px solid white;
   margin-top:50px;
+  margin-bottom: 50px;
 }
 
 
@@ -65,7 +67,7 @@ body {
      display: flex;
      justify-content: center;
      flex-wrap: wrap;
-     width:80%;
+     width:120%;
      margin:auto;
 }
  .card{
@@ -76,7 +78,7 @@ body {
    
      min-height: 180px;
    
-     padding: 30px;
+     /* padding: 30px; */
      box-sizing: border-box;
      color: #FFF;
      margin:20px;
@@ -84,7 +86,6 @@ body {
 }
 .lock{
     background: #4181ee;
-    opacity:0.3;
   
 }
 .unlock{
@@ -137,7 +138,7 @@ body {
 }
   */
 .progress2 {
-  border-radius: 30px;
+  border-radius: 3px;
   background: #000;  
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
 }
@@ -153,11 +154,12 @@ body {
 
 .progress-bar2 {
   height: 18px;
-  border-radius: 30px;
+  border-radius: 3px;
   background-image: 
     linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
   transition: 0.4s linear;  
-  transition-property: width, background-color;    
+  transition-property: width, background-color;
+
 }
 
 .progress-moved .progress-bar2 {
@@ -169,21 +171,42 @@ body {
   font-size:30px;
   cursor:pointer;
   color:white;
-  border:2px solid black; 
+  /* border:2px solid black;  */
   padding:3px; 
-  border-radius:5px;
+  /* border-radius:5px; */
   display: flex;
-  margin-left:88%; 
+  margin-left:100%; 
   text-shadow: 0px 0px 1px #01102c;
+  position: absolute;
+  top: -1%;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 500px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {
+    font-size: 50px;
+    margin-top: 25px;
+    color:white;
+  }
   
+}
+.glass {
+  background: rgba(0,0,0,0.3);  
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.score_text{
+  color:#000;
 }
 
 @media screen and (max-width: 500px){
+  .glass{
+    background: rgba( 0, 0, 0, 1 );
+  }
   .image{
     width:220px;
     height:220px;
@@ -191,16 +214,33 @@ body {
   .card{
     width:250px;
   }
+  .score_text{
+    color:#fff;
+  }
+  .sidenav a {
+    font-size: 50px;
+    margin-top: 15px;
+    margin-right:10px;
+    color:white;
+  }
+  .wrapper{
+    width:106%;
+  }
+  .main{
+    margin-top: -195px;
+  }
 }
 
 .infoContainer{
-  background-color:#56baed;
+  background-color:rgba(0,0,0,0);
   border-radius: 10%;
+  box-shadow: none;
   padding: 7%;
 }
 
 .logOut{
-  background-color: #4181ee;
+  background-color: #ee1b8f;
+  color:#fff;
   border-radius: 10%;
   padding: 10px;
   border-color:2px solid #fff; 
@@ -210,6 +250,6 @@ body {
 
 .logOut:hover{
   color:white;
-  background-color: #193159;
+  background-color: #ee1b50;
   cursor:pointer;
 }

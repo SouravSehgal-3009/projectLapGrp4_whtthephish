@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/index.css" />
-    <title>Level-1</title>
-</head>
-<body>
-    
-    <div class="wrapper">
-        <div class="outer">
-            <div class="inner"></div>
-        </div>
-        <form action="/level3" method="POST">
-            <ul class="sliders">
-                {% for i in range(1, (data|length) + 1) %}
-                <li class="slider">
-                    <div class="one">
-                        <div class="content">
-                            <div class="question">
-                                What do you think of this URL for {{data[i-1].url_brand}}, is it Phishing or NOT??<br>
-                                {{data[i-1].url}}
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <input type="radio" name="question{{i}}" value="yes">
-                                    YES
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/css/index.css" />
+        <title>Level 3</title>
+    </head>
+    <body>
+        
+        <div class="wrapper">
+            <div class="outer">
+                <div class="inner"></div>
+            </div>
+            <form action="/level3" method="POST">
+                <ul class="sliders">
+                    <li class="slider">
+                        <div class="one">
+                            <div class="content">
+                                <div class="category-title question">
+                                    <h2 class="spoofing-title"> URL Spoofing Trick 3 - Random/Unrelated/Trustworthy Domain, with Brand in Subdomain </h2>
                                 </div>
-                                <div class="option">
-                                    <input type="radio" name="question{{i}}" value="no">
-                                    NO
+                                <div class="options"> 
+                                    <p class="spoofing-info option"> A Phisher can include the brand name into the subdomain of a URL in combination 
+                                    with a random/unrelated/trustworthy domain name.<br>
+                                    Example:- http://paypal.
+                                    mark-chippy.com/account-setup/ for Paypal or http://www.amazon.account.com/ for Amazon. Here the subdomain contains the brand name 
+                                    in combination with a random/unrelated/trustworthy domain name. </p>
+                                </div> 
+                            </div> 
+                            
+                            <button value="prev" class="backward">Previous</button>
+                            <button value="next" class="forward">Next</button> 
+                        </div>
+                    </li>
+                    {% for i in range(1, (data|length) + 1) %}
+                    <li class="slider">
+                        <div class="one">
+                            <div class="content">
+                                <div class="question">
+                                <p>
+                                    {{i}} . What do you think of this URL for {{data[i-1].url_brand}}, is it Phishing or NOT??<br>
+                                    "{{data[i-1].url}}"
+                                </p>
+                                </div>
+                                <div class="options">
+                                    <label for="radio1{{i}}">
+                                        <div class="option">
+                                            <input type="radio" name="question{{i}}" value="yes" id="radio1{{i}}">
+                                            YES, It's a phishing URL
+                                        </div>
+                                    </label>
+                                    <label for="radio2{{i}}">
+                                    <div class="option">
+                                        <input type="radio" name="question{{i}}" value="no" id="radio2{{i}}">
+                                        NO, It's not a phishing URL
+                                    </div>
+                                </label>
+                                    
+                                    <input value="{{data[i-1].phishing}}" name="{{i}}" style="display:none">
+                                
                                 </div>
                                 
-                                <input value="{{data[i-1].phishing}}" name="{{i}}" style="display:none">
-                               
+                                <input type="submit" value="Submit" class="last">
+                                <button value="prev" class="backward">Previous</button>
+                                <button value="next" class="forward">Next</button>
                             </div>
-                            
-                             <input type="submit" value="submit" class="last">
-                            <button value="prev" class="backward">Previous</button>
-                            <button value="next" class="forward">Next</button>
                         </div>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </form>
-    </div>
-    
-    <script src="../static/js/index.js"></script>
-    
-</body>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </form>
+        </div>
+        
+        <script src="../static/js/index.js"></script>
+        
+    </body>
 </html>

@@ -3,6 +3,7 @@ from src import secrets
 import dns
 
 
+
 class Database(object):
 
     URI = f"mongodb+srv://{secrets.USERNAME}:{secrets.PASSWORD}@cluster0.txbjp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

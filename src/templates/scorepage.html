@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/score.css">
+    <title>Scorecard for Level {{level}}</title>
+
+  </head>
+  <body>
+
+
+    <div class="main" id="main">
+      <span id="open" class="burger" onclick="openNav()">&#9776; </span>
+        <br>
+        <h1 style="margin:auto; text-align:center; color:#fff;">Hello {{user.name}}!!<br>{% if score<4 %}You can do better!{% else %}Keep Going{% endif %}</h1><br>
+
+        <h2 style="margin:auto; text-align:center; color:#fff;">Level {{level}}</h2><br>
+        <div class="wrapper">
+            <button class="card unlock glass" >
+                <h1 >Your Score</h1>
+                <h1>{{score*10}}</h1>
+            </button>
+      
+          <button class="card unlock glass">
+                <h1 >Maximum Score</h1>
+                <h1 >100</h1>
+          </button>
+          <button class="card unlock glass" >
+                <h1 >Your Stars</h1>
+                <h1>{% for i in range(star) %}
+                  ⭐
+                {% endfor %}</h1>
+          </button>
+          </div>
+
+        <div class="wrapper">
+          <a href="./dashboard">  
+            <button class="glass dash" >
+                <h1 >🏢 Go Back To Dashboard</h1>
+            </button>
+          </a>  
+        </div>
+    </div>
+
+    <script>
+    if(window.innerWidth>500){
+      document.getElementById("open").style.display = "none";
+      document.getElementById("close").style.display = "none";
+      document.getElementById("mySidenav").style.width = "25%";
+        document.getElementById("main").style.marginLeft = "25%";
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0%";
+      document.getElementById("main").style.marginLeft= "0%";
+    }
+    function logOut(){
+      window.location.href = "/logout";
+    }
+    </script>
+  </body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

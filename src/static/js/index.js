@@ -1,5 +1,5 @@
 let currentpage = 1;
-let totalPages = 10;
+let totalPages = 11;
 
 let temp = currentpage/totalPages;
 
@@ -34,14 +34,16 @@ window.setInterval( () => {
     }
 
     if(currentpage == totalPages){
-        $('.forward').css("opacity", "0");
+        $('.forward').css("display","None");
         $('.last').css("display", "block");
         $('.last').css("position", "absolute");
-        
-        
     }
     else{
         $('.forward').css("opacity", "1"); 
         $('.last').css("display", "None");
+    }
+
+    if(currentpage == 2){
+        $(".wrapper").css("height", "55%");
     }
 }, 0.5);

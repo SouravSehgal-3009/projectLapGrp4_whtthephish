@@ -41,6 +41,23 @@ h2 {
   min-height: 100%;
   padding: 20px;
 }
+.alert, .alert_red{
+  position:absolute;
+  /* display: none; */
+  background-color: #fff3cd;
+  top:2%;
+  border-radius: 10px;;
+  width:100%;
+  padding: 10px 20px;
+  max-width: 640px;
+  text-align:center;
+  border:2px solid #ffeeba;
+}
+
+.alert_red{
+  background-color:#f8d7d8;
+  top:2%;
+}
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
